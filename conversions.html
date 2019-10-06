@@ -1,0 +1,61 @@
+<!TASK #1>
+<!DOCTYPE html>
+<html>
+<body>
+  <h2> PERFORM CONVERSIONS IN KELVIN, CELSIUS AND FARENHEIT</h2>
+  <p>Please enter the number :</p>
+     <input id="number" type="number" ></input>
+     <button onclick="getConvertedValue();">Convert</button>
+     <script>
+
+     function getConvertedValue() {
+     var value = parseInt(document.getElementById("number").value);
+
+     function cToF(value) {
+        var  f = (value * 9/5) + 32;
+        return f;
+     }
+
+     function cToK(value) {
+         var k = value + 273.15;
+         return k;
+     }
+
+     function fToC(value) {
+        var  c = (value-32) * 5/9;
+        return c;
+     }
+
+     function fToK(value) {
+         var k = (value-32) * 5/9 + 273.15;
+         return k;
+     }
+
+     function kToC(value) {
+         var c = value - 273.15;
+         return c;
+
+     }
+
+     function kToF(value) {
+         var f = (value - 273.15) * 9/5 + 32;
+         return f;
+     }
+
+     document.getElementById("CF").innerHTML = value + " C "+ "is "+ cToF(value) + " F" ;
+     document.getElementById("CK").innerHTML = value + " C "+ "is "+ cToK(value) + " K" ;
+     document.getElementById("FC").innerHTML = value + " F "+ "is "+ fToC(value) + " C" ;
+     document.getElementById("FK").innerHTML = value + " F "+ "is "+ fToK(value) + " K" ;
+     document.getElementById("KC").innerHTML = value + " K "+ "is "+ kToC(value) + " C" ;
+     document.getElementById("KF").innerHTML = value + " K "+ "is "+ kToF(value) + " F" ;
+}
+     </script>
+     <p id="CF"></p>
+     <p id="CK"></p>
+     <p id="FC"></p>
+     <p id="FK"></p>
+     <p id="KC"></p>
+     <p id="KF"></p>
+
+</body>
+</html>

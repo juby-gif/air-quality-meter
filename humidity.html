@@ -1,0 +1,26 @@
+<!TASK #2>
+<!DOCTYPE html>
+<html>
+<body>
+  <h2> CHECK HUMIDITY</h2>
+  <p>Please Enter the Value in Percentage</p>
+     <input id="number" type="number" ></input>
+     <button onclick="checkHumidityValue();">Check Humidity</button>
+     <p id = "humidity"></p>
+     <script>
+       function checkHumidityValue() {
+         var humidityInput = parseInt(document.getElementById("number").value);
+         if (humidityInput < 30) {
+           return document.getElementById("humidity").innerHTML = "The Output is : DRY";
+         }
+         else if ( humidityInput > 60) {
+           return document.getElementById("humidity").innerHTML = "The Output is : HIGH HUMIDITY";
+         }
+         else {
+           return document.getElementById("humidity").innerHTML = "The Output is : OK";
+         }
+         }
+     </script>
+
+</body>
+</html>

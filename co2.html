@@ -1,0 +1,31 @@
+<!TASK #7>
+<!DOCTYPE html>
+<html>
+<body>
+  <h2> CHECK THE INDOOR AIR QUALITY OF CARBONDIOXIDE DATA</h2>
+  <p>Please enter the value(within 400ppm and 2100ppm) :</p>
+     <input id="number" type="number" ></input>
+     <button onclick="checkAirQuality();">Check</button>
+     <p id = "value"></p>
+     <script>
+       function checkAirQuality() {
+         var value = parseInt(document.getElementById("number").value);
+         if (value >= 400 && value < 700) {
+           return document.getElementById("value").innerHTML = "The Air Quality is : EXCELLENT";
+         }
+         else if (value >= 700 && value < 900) {
+           return document.getElementById("value").innerHTML = "The Air Quality is : GOOD";
+         }
+         else if (value >= 900 && value < 1100){
+           return document.getElementById("value").innerHTML = "The Air Quality is : FAIR";
+         }
+         else if (value >= 1100 && value < 1600) {
+           return document.getElementById("value").innerHTML = "The Air Quality is : MEDIOCRE";
+         }
+         else if (value >= 1600 && value <= 2100) {
+           return document.getElementById("value").innerHTML = "The Air Quality is : BAD";
+         }
+       }
+      </script>
+</body>
+</html>

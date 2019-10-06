@@ -1,0 +1,23 @@
+<!TASK #4>
+<!DOCTYPE html>
+<html>
+<body>
+  <h2> GET THE MEAN VALUE OF PRESSURE DATA</h2>
+  <button onclick="getMeanValue();">Get Mean</button>
+  <p id = "array"></p>
+  <p id = "mean"></p>
+  <script>
+    function getMeanValue() {
+       pressureArr = [80, 90, 100, 150, 120, 110, 160, 110, 100];
+       document.getElementById("array").innerHTML = "The array is " + pressureArr;
+       var sum = 0;
+
+       for(var i = 0; i<pressureArr.length; i++) {
+         sum = sum + pressureArr[i];
+       }
+       var mean = sum / pressureArr.length;
+       return document.getElementById("mean").innerHTML = "The Mean is : " + mean + " mm Hg";
+    }
+  </script>
+</body>
+</html>

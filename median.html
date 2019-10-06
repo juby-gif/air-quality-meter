@@ -1,0 +1,28 @@
+<!TASK #5>
+<!DOCTYPE>
+<html>
+<body>
+  <h2>GET THE MEDIAN VALUE FROM THE SMART POWER METER READING DATA</h2>
+  <button onclick = "getMedianValue();">Get Median</button>
+  <p id = "array"></p>
+  <p id = "median"></p>
+  <script>
+    function getMedianValue() {
+      var median;
+     powerArr = [4, 5, 2, 6, 3, 7, 8, 9, 6, 5, 2];
+     powerArr.sort(function(a, b){return a-b}); //sort the array in ascending order by comparing adjacent numbers
+     //taken from https://www.w3schools.com/js/js_function_definition.asp
+
+     document.getElementById("array").innerHTML = "The Sorted Array is : " + powerArr;
+     if(powerArr.length % 2 === 0) { //if the length is even
+       median = (powerArr[powerArr.length / 2 - 1] + powerArr[powerArr.length / 2]) / 2;
+     }
+     else { //if the length is odd
+       median = powerArr[(powerArr.length - 1) / 2];
+     }
+     return document.getElementById("median").innerHTML = "The Median is : " + median + " kw/h"
+     }
+
+    </script>
+</body>
+</html>
