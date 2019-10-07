@@ -1,0 +1,66 @@
+<!TASK #6>
+<!DOCTYPE html>
+<html>
+<body>
+  <h2> PERFORM COMPUTATIONS </h2>
+     <button onclick="getValue();">Compute</button>
+     <p id = "array"></p>
+     <p id = "std"></p>
+     <p id = "var"></p>
+
+     <script>
+       function getValue() {
+        arrayData = [2,2,2,3,3,2,4,54,23,1,23,34,1,1,1,5,6];
+        arrayData.sort(function(a,b){return a-b});
+        document.getElementById("array").innerHTML = "The sorted array is " + arrayData;
+        //document.getElementById("smv").innerHTML = "The Single Mode Value is " + singleModeValues(arrayData);
+        //document.getElementById("mmv").innerHTML = "The Multi Mode Values are " + multipleModeValues(arrayData);
+        //document.getElementById("rang").innerHTML = "The Range is " + range(arrayData);
+        document.getElementById("var").innerHTML = "The Variance is " + Math.pow(standardDeviation(arrayData),2);
+        document.getElementById("std").innerHTML = "The Standard Deviation is " + standardDeviation(arrayData);
+
+
+        function standardDeviation(arrayData) {
+          var avg = average(arrayData);
+          var squaredDifference = squareDifferences(arrayData);
+          var meanSquaredDifferences = average(squaredDifference);
+          std = Math.sqrt(meanSquaredDifferences);
+          return std;
+        }
+
+      function average(data) {
+        var sum = 0;
+        for(i = 0; i<data.length; i++){
+          sum = sum + data[i];
+        }
+        avg = sum / data.length;
+        return avg;
+        }
+      function squareDifferences (data) {
+        var diff=[];
+        for(var i = 0; i<data.length; i++) {
+          var squareDiff = Math.pow(data[i] - average(arrayData),2);
+          diff.push(squareDiff);
+        }
+        return diff;
+      }
+
+     function range(data) {
+
+     }
+
+     function singleModeValues(data) {
+
+     }
+
+     function multipleModeValues(data) {
+
+     }
+
+    }
+
+
+
+     </script>
+</body>
+</html>
