@@ -5,17 +5,19 @@
   <h2> PERFORM COMPUTATIONS </h2>
      <button onclick="getValue();">Compute</button>
      <p id = "array"></p>
+     <p id = "mmv"></p>
+     <p id = "rang"></p>
      <p id = "std"></p>
      <p id = "var"></p>
 
      <script>
        function getValue() {
-        arrayData = [2,2,2,3,3,2,4,54,23,1,23,34,1,1,1,5,6];
-        arrayData.sort(function(a,b){return a-b});
+        var arrayData = [2,2,2,3,3,2,4,54,23,1,23,34,1,1,1,5,6,2];
+        arrayData.sort(function(a,b){return a-b}); //for sorting in ascending order taken from https://www.w3schools.com/js/js_array_sort.asp
         document.getElementById("array").innerHTML = "The sorted array is " + arrayData;
-        //document.getElementById("smv").innerHTML = "The Single Mode Value is " + singleModeValues(arrayData);
-        //document.getElementById("mmv").innerHTML = "The Multi Mode Values are " + multipleModeValues(arrayData);
-        //document.getElementById("rang").innerHTML = "The Range is " + range(arrayData);
+        document.getElementById("mmv").innerHTML = "The Mode Value is " + getMode(arrayData);
+        var range = range(arrayData);
+        document.getElementById("rang").innerHTML = "The Range is " + "(" + range["min"] + "," + range["max"] + ")";
         document.getElementById("var").innerHTML = "The Variance is " + Math.pow(standardDeviation(arrayData),2);
         document.getElementById("std").innerHTML = "The Standard Deviation is " + standardDeviation(arrayData);
 
@@ -45,22 +47,53 @@
         return diff;
       }
 
-     function range(data) {
-
+     function range(data) { //I perfom range as per the definition from https://www.mathsisfun.com/definitions/range-statistics-.html#targetText=The%20difference%20between%20the%20lowest,The%20Range%20(Statistics)
+       var maximum = getMaxValue(arrayData);
+       var minimum = getMinValue(arrayData);
+        return {min : minimum,max : maximum};
      }
 
-     function singleModeValues(data) {
+     /**
+     *  Function will return mode value(s).
+     *  Code taken from https://jonlabelle.com/snippets/view/javascript/calculate-mean-median-mode-and-range-in-javascript#targetText=*%20and%20then%20divide%20by%20the%20number%20of%20numbers.&targetText=*%20For%20example%2C%20the%20%22mean,2%2C%203%5D%20is%202.875.&targetText=*%20The%20%22median%22%20is%20the,in%20the%20list%20of%20numbers.&targetText=*%20%40return%20%7BNumber%7D%20The%20calculated%20median,value%20from%20the%20specified%20numbers.
+     */
 
-     }
+     function getMode(numbers) {
+   var modes = [], count = [], i, number, maxIndex = 0;
+   for (i = 0; i < numbers.length; i += 1) {
+       number = numbers[i];
+       count[number] = (count[number] || 0) + 1;
+       if (count[number] > maxIndex) {
+           maxIndex = count[number];
+       }
+   }
+   for (i in count)
+       if (count.hasOwnProperty(i)) {
+           if (count[i] === maxIndex) {
+               modes.push(Number(i));
+           }
+       }
+   return modes;
+}
+/**
+* The "range" of a list a numbers is the difference between the largest and
+* smallest values. Code taken from: https://jonlabelle.com/snippets/view/javascript/calculate-mean-median-mode-and-range-in-javascript#targetText=*%20and%20then%20divide%20by%20the%20number%20of%20numbers.&targetText=*%20For%20example%2C%20the%20%22mean,2%2C%203%5D%20is%202.875.&targetText=*%20The%20%22median%22%20is%20the,in%20the%20list%20of%20numbers.&targetText=*%20%40return%20%7BNumber%7D%20The%20calculated%20median,value%20from%20the%20specified%20numbers.
+*
+* For example, the "range" of [3, 5, 4, 4, 1, 1, 2, 3] is [1, 5].
+*
+* @param {Array} numbers An array of numbers.
+* @return {Array} The range of the specified numbers.
+*/
 
-     function multipleModeValues(data) {
+     function getMinValue(data) {
+       return Math.min(...data);
+       }
 
-     }
+    function getMaxValue(data) {
+      return Math.max(...data);
+       }
 
-    }
-
-
-
+}
      </script>
 </body>
 </html>

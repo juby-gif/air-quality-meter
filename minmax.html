@@ -10,22 +10,8 @@
     function getMinMaxValue() {
       temperatureArr = [21, 23, 26, 22, 25, 20, 19, 23];
       document.getElementById("array").innerHTML = "The array is " + temperatureArr;
-      var i;
-      var max = 0;
-      for(i = 0; i < temperatureArr.length; i++) {
-        if (temperatureArr[i] > max) {
-          max = temperatureArr[i];
-        }
-      }
-      min = max;
-      document.getElementById("max").innerHTML = "The Maximum is : " + max + " degrees";
-
-      for(i = 0; i < temperatureArr.length; i++) {
-      if (temperatureArr[i] < min) {
-        min = temperatureArr[i];
-      }
-      }
-      document.getElementById("min").innerHTML = "The Minimum is : " + min + " degrees";
+      document.getElementById("max").innerHTML = "The Maximum is : " + Math.max(...temperatureArr) + " degrees";
+      document.getElementById("min").innerHTML = "The Minimum is : " + Math.min(...temperatureArr) + " degrees";
       }
 
   </script>

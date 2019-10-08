@@ -9,8 +9,8 @@
   <script>
     function getMedianValue() {
       var median;
-     powerArr = [4, 5, 2, 6, 3, 7, 8, 9, 6, 5, 2];
-     powerArr.sort(function(a, b){return a-b}); //sort the array in ascending order by comparing adjacent numbers
+     var powerArr = [4, 5, 2, 6, 3, 7, 8, 9, 6, 5, 2];
+     powerArr.sort(function(a, b){return a-b;}); //sort the array in ascending order by comparing adjacent numbers
      //taken from https://www.w3schools.com/js/js_function_definition.asp
 
      document.getElementById("array").innerHTML = "The Sorted Array is : " + powerArr;

@@ -9,35 +9,35 @@
      <script>
 
      function getConvertedValue() {
-     var value = parseInt(document.getElementById("number").value);
-
-     function cToF(value) {
+     var value = parseFloat(document.getElementById("number").value);
+//formulas taken from https://www.thoughtco.com/temperature-conversion-formulas-609324
+     function cToF(value) { //function to convert CELSIUS to FARENHEIT
         var  f = (value * 9/5) + 32;
         return f;
      }
 
-     function cToK(value) {
+     function cToK(value) {  //function to convert CELSIUS to KELVIN
          var k = value + 273.15;
          return k;
      }
 
-     function fToC(value) {
+     function fToC(value) {  //function to convert FARENHEIT to CELSIUS
         var  c = (value-32) * 5/9;
         return c;
      }
 
-     function fToK(value) {
+     function fToK(value) {  //function to convert FARENHEIT to KELVIN
          var k = (value-32) * 5/9 + 273.15;
          return k;
      }
 
-     function kToC(value) {
+     function kToC(value) {  //function to convert KELVIN to CELSIUS
          var c = value - 273.15;
          return c;
 
      }
 
-     function kToF(value) {
+     function kToF(value) {  //function to convert KELVIN to FARENHEIT
          var f = (value - 273.15) * 9/5 + 32;
          return f;
      }
